@@ -38,8 +38,8 @@ Date.locale = {
            this.each(function() {
                 $(this).data('month', params['show_month']); 
                 for (number=0;number<=11;number++){ 
-                        var date_start = new Date(); date_start.setMonth(number); date_start.setDate(0); 
-                        var date_end = new Date(); date_end.setMonth(number + 1); date_end.setDate(0); 
+                        var date_start = new Date(); date_start.setYear(params['year']); date_start.setMonth(number); date_start.setDate(0); 
+                        var date_end = new Date(); date_end.setYear(params['year']); date_end.setMonth(number + 1); date_end.setDate(0); 
                         if (params['day_contents'][0]){ month_contents=params['day_contents'][0][number]} else { month_contents=Array(); }
                        $(this).append( create_month( date_start, date_end, month_contents, params['show_month']) ); 
                  }
@@ -47,7 +47,7 @@ Date.locale = {
             });  
             return this;  
     };  
-    $.fn.simpleHtml5Calendar.defaults = {day_contents: new Array(), lang: "en", show_month: 0 }
+    $.fn.simpleHtml5Calendar.defaults = {day_contents: new Array(), lang: "en", show_month: 0, year: 2012 }
 })(jQuery);  
     
 (function($) {  
